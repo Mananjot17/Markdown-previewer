@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Editor from './components/Editor';
+import Preview from './components/Preview';
+import Toolbar from './components/Toolbar';
 
-function App() {
+const App = () => {
+  const [markdown, setMarkdown] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <Toolbar markdown={markdown} setMarkdown={setMarkdown} />
+      <Editor markdown={markdown} setMarkdown={setMarkdown} />
+      <Preview markdown={markdown} />
     </div>
   );
-}
+};
 
 export default App;
